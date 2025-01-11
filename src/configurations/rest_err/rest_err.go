@@ -38,3 +38,46 @@ func NewBadRequestError(message string) *RestErr {
         Code: http.StatusBadRequest,
     }
 }
+
+
+// a method of RestErr called Error that returns a message of RestErr
+// it seems like a public get ( method ) in classes nodejs
+func (r *RestErr) Error() string {
+    return r.Message
+}
+
+
+func NewBadRequestValidationError(message string, causes []Causes) *RestErr {
+    return &RestErr{
+        Message: message,
+        Err: "bad request",
+        Code: http.StatusBadRequest,
+        Causes: causes,
+    }
+}
+
+
+func NewInternalServerError(message string) *RestErr {
+    return &RestErr{
+        Message: message,
+        Err: "internal server error",
+        Code: http.StatusInternalServerError,
+    }
+}
+
+func NewNotFoundError(message string) *RestErr {
+    return &RestErr{
+        Message: message,
+        Err: "not found",
+        Code: http.StatusNotFound,
+    }
+}
+
+
+func NewForbiddenError(message string) *RestErr {
+    return &RestErr{
+        Message: message,
+        Err: "forbidden",
+        Code: http.StatusForbidden,
+    }
+}
