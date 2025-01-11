@@ -10,7 +10,7 @@ type RestErr struct {
     Message string  `json:"message"`
     Err     string  `json:"error"`
     Code    int     `json:"code"`
-    Causes  []Causes`json:"causes,omitempty"` // do not appear if causes be empyt
+    Causes  []Causes`json:"causes,omitempty"` // dont appear if causes be empyt
 }
 
 type Causes struct {
