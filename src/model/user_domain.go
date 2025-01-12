@@ -1,0 +1,18 @@
+package model
+
+import "peruccii/goapi/src/configurations/rest_err"
+
+// begin to lowerCase bc its private
+type UserDomain struct {
+    Email       string
+    Password    string
+    Name        string
+    Age         string
+}
+
+type UserDomainInterface interface {
+    CreateUser(UserDomain)         *rest_err.RestErr // <-- create and may return an error
+    UpdateUser(string, UserDomain) *rest_err.RestErr // <-- pass user id and your content
+    FindUser(string)               (*UserDomain, *rest_err.RestErr) // <-- return User or error
+    DeleteUser(string)             *rest_err.RestErr
+}
