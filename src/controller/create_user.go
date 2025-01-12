@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"peruccii/goapi/src/configurations/validation"
 	"peruccii/goapi/src/controller/model/request"
+	"peruccii/goapi/src/controller/model/response"
 
 	"github.com/gin-gonic/gin"
 )
@@ -21,6 +22,13 @@ func CreateUser(c *gin.Context) {
         return // <-- return to not continues the code
     }
 
-    c.JSON(http.StatusOK, userRequest)
+    response := response.UserResponse{
+        ID: "test",
+        Email: userRequest.Email,
+        Name: userRequest.Name,
+        Age: userRequest.Age,
+    }
+
+    c.JSON(http.StatusOK, response)
         
 }
