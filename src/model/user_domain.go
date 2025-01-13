@@ -11,7 +11,17 @@ type UserDomain struct {
     Email       string
     Password    string
     Name        string
-    Age         string
+    Age         int8
+}
+
+// constructor 
+func NewUserDomain(email, password, name string, age int8) UserDomainInterface {
+    return &UserDomain{
+        email, 
+        password, 
+        name,
+        age,
+    }
 }
 
 func (ud *UserDomain) EncryptPassword() {
@@ -22,8 +32,8 @@ func (ud *UserDomain) EncryptPassword() {
 }
 
 type UserDomainInterface interface {
-    CreateUser()         *rest_err.RestErr // <-- create and may return an error
-    UpdateUser(string) *rest_err.RestErr // <-- pass user id and your content
+    CreateUser()                   *rest_err.RestErr // <-- create and may return an error
+    UpdateUser(string)             *rest_err.RestErr // <-- pass user id and your content
     FindUser(string)               (*UserDomain, *rest_err.RestErr) // <-- return User or error
     DeleteUser(string)             *rest_err.RestErr
 }
