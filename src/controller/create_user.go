@@ -5,9 +5,11 @@ import (
 	"peruccii/goapi/src/configurations/validation"
 	"peruccii/goapi/src/controller/model/request"
 	"peruccii/goapi/src/controller/model/response"
+	"peruccii/goapi/src/model"
 
 	"github.com/gin-gonic/gin"
 )
+
 
 func CreateUser(c *gin.Context) {
     
@@ -21,14 +23,19 @@ func CreateUser(c *gin.Context) {
         
         return // <-- return to not continues the code
     }
+    
+    domain := model.NewUserDomain(
+        userRequest.Email,
+        userRequest.Password,
+        userRequest.Name,
+        userRequest.Age, 
+    )
 
-    response := response.UserResponse{
-        ID: "test",
-        Email: userRequest.Email,
-        Name: userRequest.Name,
-        Age: userRequest.Age,
+     if err := domain.CreateUser(); err != nil {
+         c.JSON(err.Code, err)
+         return 
     }
 
-    c.JSON(http.StatusOK, response)
+    c.JSON(http.StatusOK, "")
         
 }
