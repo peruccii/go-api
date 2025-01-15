@@ -4,7 +4,6 @@ import (
 	"net/http"
 	"peruccii/goapi/src/configurations/validation"
 	"peruccii/goapi/src/controller/model/request"
-	"peruccii/goapi/src/controller/model/response"
 	"peruccii/goapi/src/model"
 
 	"github.com/gin-gonic/gin"

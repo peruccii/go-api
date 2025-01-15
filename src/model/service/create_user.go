@@ -1,11 +1,11 @@
-package model
+package service
 
 import (
 	"peruccii/goapi/src/configurations/rest_err"
-	model "peruccii/goapi/src/model/service"
+	"peruccii/goapi/src/model"
 )
 
-func (ud *userDomainInterface) CreateUser(userDomain model.userDomainInterface)  *rest_err.RestErr {
+func (ud *userDomainInterface) CreateUser(userDomain model.UserDomainInterface)  *rest_err.RestErr {
    
     return nil
 }

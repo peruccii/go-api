@@ -9,18 +9,12 @@ type UserDomainInterface interface {
     GetEmail()    string
     GetName()     string
     GetPassword() string
-    GetAge()      string
+    GetAge()      int8
 
     EncryptPassword()
 }
 
-// begin to lowerCase bc its private
-type userDomain struct {
-    email       string
-    password    string
-    name        string
-    age         int8
-}
+
 
 // constructor 
 func NewUserDomain(email, password, name string, age int8) UserDomainInterface {
@@ -31,6 +25,14 @@ func NewUserDomain(email, password, name string, age int8) UserDomainInterface {
         age,
     }
 }
+
+type userDomain struct {
+    email       string
+    password    string
+    name        string
+    age         int8
+}
+
 
 func (ud *userDomain) GetEmail() string {
     return ud.email

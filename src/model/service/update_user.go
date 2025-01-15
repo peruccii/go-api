@@ -1,4 +1,4 @@
-package model
+package service
 
 import "peruccii/goapi/src/configurations/rest_err"
 

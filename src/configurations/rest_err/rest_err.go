@@ -65,6 +65,7 @@ func NewInternalServerError(message string) *RestErr {
     }
 }
 
+
 func NewNotFoundError(message string) *RestErr {
     return &RestErr{
         Message: message,
